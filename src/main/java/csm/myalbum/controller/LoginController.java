@@ -15,4 +15,9 @@ public class LoginController {
     public String addMember(){
         return "addMemberForm";
     }
+
+    @GetMapping("albumList")
+    public String albumList(){
+        return "albumList";
+    }
 }
