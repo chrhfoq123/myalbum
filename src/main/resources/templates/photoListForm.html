@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/layout.css}" href="../css/layout.css" rel="stylesheet">
+    <link th:href="@{/css/photoListForm.css}" href="../css/photoListForm.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: header}" />
+
+<div class="container">
+    <div class="backPage"><- 앨범 목록으로 돌아가기</div>
+    <div class="albumNameAttr">
+        <div class="albumName">앨범명</div>
+        <div class="albumNameUpdate"><- 앨범명을 변경하려면 클릭하세요</div>
+    </div>
+    <div class="albumInfo">
+        <button class="photoAdd" type="submit">사진 추가</button>
+        <div class="uploadDay">2023-12-02</div>
+        <div class="colLine"></div>
+        <div class="photoNum">50장</div>
+    </div>
+    <div class="sortBar">
+        <div class="photoSort">
+            A-Z 이름순 ▼
+        </div>
+    </div>
+    <div class="photoList1">
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+    </div>
+    <div class="photoList2">
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+    </div>
+    <div class="photoList3">
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+    </div>
+    <div class="photoList4">
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+    </div>
+    <div class="photoList5">
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+        <div class="selectPhoto"></div>
+    </div>
+</div>
+</body>
+</html>

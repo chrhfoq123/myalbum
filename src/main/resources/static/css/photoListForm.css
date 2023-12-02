@@ -1,0 +1,17 @@
+.backPage {font-size: 13px; padding-top: 2rem;}
+.albumNameAttr {display: flex; padding-top: 1rem; align-items: center;}
+.albumName {flex: none; font-size: 25px;}
+.albumNameUpdate {flex: none; font-size: 13px; margin-left: 1rem;}
+.sortBar {display: flex; padding-top: 1rem; border-bottom: solid 1px black;}
+.photoSort {flex: none; padding-bottom: 0.5rem; margin-left: auto; font-size: 13px;}
+.albumInfo {display: flex; padding-top: 1rem;}
+.photoAdd {flex: none; border: none; background-color: #dcdcdc; width: 120px; height: 40px;}
+.uploadDay {padding-left: 1.5rem; padding-top: 0.6rem; flex: none; font-size: 12px;}
+.colLine {border: 1px solid black; width: 0.1px; margin-left: 1rem; margin-right: 1rem; margin-top: 0.4rem; margin-bottom: 0.4rem;}
+.photoNum {flex: none; font-size: 12px; padding-top: 0.6rem;}
+.photoList1 {display: flex; align-items: center;}
+.photoList2 {display: flex; align-items: center;}
+.photoList3 {display: flex; align-items: center;}
+.photoList4 {display: flex; align-items: center;}
+.photoList5 {display: flex; align-items: center;}
+.selectPhoto {margin-left: auto; margin-right: auto; margin-top: 1rem; flex: none; width:105px; height:105px; background-color: #dcdcdc;}

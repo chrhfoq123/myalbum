@@ -18,6 +18,13 @@ public class LoginController {
 
     @GetMapping("albumList")
     public String albumList(){
-        return "albumList";
+        return "albumListForm";
     }
+
+    @GetMapping("photoList")
+    public String photoList(){
+        return "photoListForm";
+    }
+
+
 }
