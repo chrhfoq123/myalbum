@@ -1,0 +1,9 @@
+.backPage {font-size: 13px; padding-top: 2rem;}
+.photoContent {display: flex;}
+.photoImg {flex: none; width: 600px; height: 600px; margin-left: 15rem; margin-right: 10rem; margin-bottom: 3rem; margin-top: 3rem; background-color: #dcdcdc;}
+.photoInfo {flex: none; border-left: solid 1px black; padding-left: 2rem;}
+.photoAttr {padding-top: 1rem;font-size: 25px; font-weight: bold;}
+.photoName {border-bottom: solid 1px black; padding-top: 4rem;}
+.photoUploadDay {border-bottom: solid 1px black; padding-top: 7rem;}
+.photoVolume {border-bottom: solid 1px black; padding-top: 7rem;}
+.label {font-size: 10px; color: #aaaaaa;}

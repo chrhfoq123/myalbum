@@ -26,5 +26,8 @@ public class LoginController {
         return "photoListForm";
     }
 
-
+    @GetMapping("photoInfo")
+    public String photoInfo(){
+        return "photoInfoForm";
+    }
 }

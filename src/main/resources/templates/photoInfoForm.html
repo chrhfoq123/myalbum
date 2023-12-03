@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/layout.css}" href="../css/layout.css" rel="stylesheet">
+  <link th:href="@{/css/photoInfoForm.css}" href="../css/photoListForm.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: header}" />
+
+<div class="container">
+    <div class="backPage"><- 앨범 목록으로 돌아가기</div>
+    <div class="photoContent">
+        <div class="photoImg">
+            사진
+        </div>
+        <div class="photoInfo">
+            <div class="photoAttr">이미지 정보</div>
+            <div class="photoName">first_picture.jpg</div>
+            <div class="label">파일명</div>
+            <div class="photoUploadDay">2023-12-03, 17:20 PM</div>
+            <div class="label">업로드 날짜</div>
+            <div class="photoVolume">256.6KB</div>
+            <div class="label">파일 용량</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
