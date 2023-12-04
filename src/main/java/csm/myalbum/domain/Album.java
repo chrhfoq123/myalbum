@@ -21,6 +21,10 @@ public class Album {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "album")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Photo> photos;
 }
