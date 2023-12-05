@@ -35,22 +35,33 @@ class UserServiceTest {
     }
 
     @Test
-    public void 중복_회원_예외() throws Exception{
+    public void 중복_아이디_예외() throws Exception{
         //given
         User user1 = new User();
         user1.setUserId("chrhfoq123");
-        user1.setUserEmail("chrhfoq123@naver.com");
-        user1.setUserName("최상민");
-        user1.setUserPassword("asdfasdfasdf123");
 
         User user2 = new User();
-        user2.setUserId("chrhfoq123");
-        user2.setUserEmail("chrhfoq123@naver.com");
-        user2.setUserName("최상민2");
-        user2.setUserPassword("asdfasdfasdf123");
+        user2.setUserName("chrhfoq123");
 
         //when
+        userService.join(user1);
+        assertThrows(IllegalStateException.class, () -> userService.join(user2));
 
+        //then
+    }
+
+    @Test
+    public void 중복_이메일_예외() throws Exception{
+        //given
+        User user1 = new User();
+        user1.setUserEmail("chrhfoq123@naver.com");
+
+        User user2 = new User();
+        user2.setUserEmail("chrhfoq123@naver.com");
+
+        //when
+        userService.join(user1);
+        assertThrows(IllegalStateException.class, () -> userService.join(user2));
 
         //then
     }
