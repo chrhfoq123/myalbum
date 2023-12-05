@@ -21,9 +21,10 @@ public class UserService {
      */
     @Transactional
     public Long join(User user){
-        validateDuplicateUser(user); //중복 회원 검증
+        validateDuplicateUserId(user); //중복 회원아이디 검증
+        validateDuplicateUserEmail(user); //중복 회원이메일 검증
         userRepository.save(user);
-        return user.getUserId();
+        return user.getId();
     }
 
     /**
@@ -40,10 +41,17 @@ public class UserService {
         return userRepository.findOne(userId);
     }
 
-    private void validateDuplicateUser(User user) {
-        List<User> findUsers = userRepository.findByName(user.getUserName());
+    private void validateDuplicateUserId(User user) {
+        List<User> findUsers = userRepository.findByUserId(user.getUserName());
         if(!findUsers.isEmpty()){
-            throw new IllegalStateException("이미 존재하는 회원입니다.");
+            throw new IllegalStateException("사용할 수 없는 아이디입니다.");
+        }
+    }
+
+    private void validateDuplicateUserEmail(User user) {
+        List<User> findUsers = userRepository.findByUserEmail(user.getUserEmail());
+        if(!findUsers.isEmpty()){
+            throw new IllegalStateException("이미 사용중인 이메일입니다.");
         }
     }
 }

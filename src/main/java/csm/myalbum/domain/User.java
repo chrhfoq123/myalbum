@@ -12,13 +12,16 @@ import java.util.List;
 public class User {
 
     @Id @GeneratedValue
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "id")
+    private Long id;
 
-    @Column(name = "user_name", unique = true)
+    @Column(name = "user_id", unique = true)
+    private String userId;
+
+    @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "user_email")
+    @Column(name = "user_email", unique = true)
     private String userEmail;
 
     @Column(name = "user_password")
