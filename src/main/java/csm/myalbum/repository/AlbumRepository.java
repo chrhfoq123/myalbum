@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -19,8 +20,18 @@ public class AlbumRepository {
         em.persist(album);
     }
 
+    public Album findOne(Long albumId){
+        return em.find(Album.class, albumId);
+    }
+
     public List<Album> findAll(){
         return em.createQuery("select a from Album a", Album.class)
                 .getResultList();
+    }
+
+    public Album findById(Long albumId){
+        return em.createQuery("select a from Album a where a.albumId = :albumId", Album.class)
+                .setParameter("albumId", albumId)
+                .getSingleResult();
     }
 }
