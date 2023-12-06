@@ -1,14 +1,11 @@
 package csm.myalbum.repository;
 
 import csm.myalbum.domain.Album;
-import csm.myalbum.domain.Photo;
-import csm.myalbum.domain.User;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
