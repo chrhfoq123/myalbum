@@ -18,14 +18,28 @@ class AlbumServiceTest {
     @Autowired AlbumService albumService;
 
     @Test
-    public void getAlbum() throws Exception{
+    public void getAlbumById() throws Exception{
         //given
         Album album = new Album();
         album.setAlbumName("테스트");
         albumRepository.save(album);
 
         //when
-        Album resAlbum = albumService.getAlbum(album.getAlbumId());
+        Album resAlbum = albumService.getAlbumById(album.getAlbumId());
+
+        //then
+        Assertions.assertThat(resAlbum.getAlbumName()).isEqualTo("테스트");
+    }
+
+    @Test
+    public void getAlbumByName() throws Exception{
+        //given
+        Album album = new Album();
+        album.setAlbumName("테스트");
+        albumRepository.save(album);
+
+        //when
+        Album resAlbum = albumService.getAlBumByName(album.getAlbumName());
 
         //then
         Assertions.assertThat(resAlbum.getAlbumName()).isEqualTo("테스트");

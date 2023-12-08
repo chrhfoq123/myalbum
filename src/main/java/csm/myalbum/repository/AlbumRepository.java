@@ -31,4 +31,10 @@ public class AlbumRepository {
                 .setParameter("albumId", albumId)
                 .getSingleResult();
     }
+
+    public Album findByName(String name){
+        return em.createQuery("select a from Album a where a.albumName = :albumName", Album.class)
+                .setParameter("albumName", name)
+                .getSingleResult();
+    }
 }
