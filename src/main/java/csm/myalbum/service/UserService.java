@@ -41,6 +41,9 @@ public class UserService {
         return userRepository.findOne(userId);
     }
 
+    /**
+     * 아이디 중복 검증
+     */
     private void validateDuplicateUserId(User user) {
         List<User> findUsers = userRepository.findByUserId(user.getUserName());
         if(!findUsers.isEmpty()){
@@ -48,6 +51,9 @@ public class UserService {
         }
     }
 
+    /**
+     * 이메일 중복 검증
+     */
     private void validateDuplicateUserEmail(User user) {
         List<User> findUsers = userRepository.findByUserEmail(user.getUserEmail());
         if(!findUsers.isEmpty()){

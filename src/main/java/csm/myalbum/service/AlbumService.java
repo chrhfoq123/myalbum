@@ -27,6 +27,9 @@ public class AlbumService {
         }
     }
 
+    /**
+     * 앨범 조회(name)
+     */
     public Album getAlBumByName(String albumName){
         Album res = albumRepository.findByName(albumName);
         if(res != null){
