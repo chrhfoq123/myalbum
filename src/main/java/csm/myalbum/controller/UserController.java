@@ -30,6 +30,20 @@ public class UserController {
         }
 
         userService.join(user);
-        return "redirect:/";
+        return "redirect:/"; //앨범으로
     }
+
+    @GetMapping("/login")
+    public String loginForm(@ModelAttribute("user") User user){
+        return "users/loginForm";
+    }
+
+//    @PostMapping("/login")
+//    public String login(@Valid @ModelAttribute("user") User user, BindingResult result){
+//        if(result.hasErrors()){
+//            return "users/loginForm";
+//        }
+//
+//
+//    }
 }

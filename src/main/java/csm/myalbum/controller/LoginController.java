@@ -6,27 +6,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 
-    @GetMapping("login")
+//    @GetMapping("login")
     public String login(){
         return "loginForm";
     }
 
-    @GetMapping("addMember")
+//    @GetMapping("addMember")
     public String addMember(){
         return "addMemberForm";
     }
 
-    @GetMapping("albumList")
+//    @GetMapping("albumList")
     public String albumList(){
         return "albumListForm";
     }
 
-    @GetMapping("photoList")
+//    @GetMapping("photoList")
     public String photoList(){
         return "photoListForm";
     }
 
-    @GetMapping("photoInfo")
+//    @GetMapping("photoInfo")
     public String photoInfo(){
         return "photoInfoForm";
     }

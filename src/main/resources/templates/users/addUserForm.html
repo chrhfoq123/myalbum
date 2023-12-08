@@ -3,31 +3,31 @@
 <head>
   <meta charset="utf-8">
   <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
-  <link th:href="@{/css/addMemberForm.css}" href="../css/addMemberForm.css" rel="stylesheet">
+  <link th:href="@{/css/addUserForm.css}" href="../css/addUserForm.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
   <div class="logo">
     <h2>My Album</h2>
   </div>
-  <form action="item.html" method="post">
+  <form action="" th:action th:object="${user}" method="post">
     <div class="memberInfo">
-      <input type="text" id="id" class="id" placeholder="이름">
+      <input type="text" th:field="*{userId}" class="id" placeholder="이름" th:errorclass="field-error">
+      <div class="field-error" th:error="*{userId}"></div>
     </div>
     <div class="memberInfo">
-      <input type="email" id="email" class="email" placeholder="이메일">
+      <input type="email" th:field="*{userEmail}" class="email" placeholder="이메일" th:errorclass="field-error">
+      <div class="field-error" th:error="*{userEmail}"></div>
     </div>
     <div class="memberInfo">
-      <input type="password" id="password" class="password" placeholder="비밀번호">
-    </div>
-    <div class="memberInfo">
-      <input type="password" id="passwordCheck" class="passwordCheck" placeholder="비밀번호 재입력">
+      <input type="password" th:field="*{userPassword}" class="password" placeholder="비밀번호" th:errorclass="field-error">
+      <div class="field-error" th:error="*{userPassword}"></div>
     </div>
     <div class="col">
       <button class="addMemberBtn" type="submit">회원가입</button>
     </div>
     <div class="col">
-      <button class="cancelBtn" onclick="location.href='loginForm.html'" type="button">취소</button>
+      <button class="cancelBtn" th:onclick="|location.href='@{/users/login}'|" type="button">취소</button>
     </div>
   </form>
 </div> <!-- /container -->
