@@ -10,12 +10,14 @@
     <div class="mainLogo">
         <h2>My Album</h2>
     </div>
-    <form action="item.html" method="post">
+    <form action="" th:action th:object="${user}" method="post">
         <div class="memberInfo">
-            <input type="text" id="id" class="id" placeholder="아이디 입력">
+            <input type="text" th:field="*{userId}" class="id" placeholder="아이디 입력">
+            <div class="field-error" th:error="*{userId}"></div>
         </div>
         <div class="memberInfo">
-            <input type="password" id="password" class="password" placeholder="비밀번호 입력">
+            <input type="password" th:field="*{userPassword}" class="password" placeholder="비밀번호 입력">
+            <div class="field-error" th:error="*{userPassword}"></div>
         </div>
         <div class="saveId">
             <input type="checkbox">아이디 저장</input>
@@ -24,7 +26,7 @@
             <button class="loginBtn" type="submit">로그인</button>
         </div>
         <div class="col">
-            <button class="addMemberBtn" onclick="location.href='items.html'" type="button">회원가입</button>
+            <button class="addMemberBtn" th:onclick="|location.href='@{/users/add}'|" type="button">회원가입</button>
         </div>
     </form>
 </div> <!-- /container -->

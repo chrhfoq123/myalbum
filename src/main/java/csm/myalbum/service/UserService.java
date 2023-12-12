@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -24,6 +26,16 @@ public class UserService {
         validateDuplicateUserEmail(user); //중복 회원이메일 검증
         userRepository.save(user);
         return user.getId();
+    }
+
+    public User login(String loginId, String password){
+        Optional<User> findUserOptional = userRepository.findByUserId(loginId);
+        User user = findUserOptional.get();
+        if(user.getUserPassword().equals(password)){
+            return user;
+        }else{
+            return null;
+        }
     }
 
     /**
@@ -44,7 +56,7 @@ public class UserService {
      * 아이디 중복 검증
      */
     private void validateDuplicateUserId(User user) {
-        List<User> findUsers = userRepository.findByUserId(user.getUserName());
+        Optional<User> findUsers = userRepository.findByUserId(user.getUserName());
         if(!findUsers.isEmpty()){
             throw new IllegalStateException("사용할 수 없는 아이디입니다.");
         }

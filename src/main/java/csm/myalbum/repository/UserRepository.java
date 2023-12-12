@@ -6,6 +6,7 @@ import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UserRepository {
@@ -26,10 +27,10 @@ public class UserRepository {
                 .getResultList();
     }
 
-    public List<User> findByUserId(String userId){
-        return em.createQuery("select u from User u where u.userId = :userId", User.class)
-                .setParameter("userId", userId)
-                .getResultList();
+    public Optional<User> findByUserId(String userId){
+        return findAll().stream()
+                .filter(u -> u.getUserId().equals(userId))
+                .findFirst();
     }
 
     public List<User> findByUserEmail(String userEmail){

@@ -2,6 +2,7 @@
 .field-error {border-color: #dc3545; color: #dc3545;}
 .logo {padding-top: 15rem; padding-bottom: 1rem;}
 .memberInfo{padding-bottom: 1rem;  text-align: center;}
+.name {border: 1px solid black; border-radius: 6px; width: 430px; height: 35px; padding-left: 1rem;}
 .id {border: 1px solid black; border-radius: 6px; width: 430px; height: 35px; padding-left: 1rem;}
 .password {border: 1px solid black; border-radius: 6px; width: 430px; height: 35px; padding-left: 1rem;}
 .email {border: 1px solid black; border-radius: 6px; width: 430px; height: 35px; padding-left: 1rem;}

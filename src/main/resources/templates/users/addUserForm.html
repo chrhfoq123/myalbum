@@ -12,12 +12,16 @@
   </div>
   <form action="" th:action th:object="${user}" method="post">
     <div class="memberInfo">
-      <input type="text" th:field="*{userId}" class="id" placeholder="이름" th:errorclass="field-error">
-      <div class="field-error" th:error="*{userId}"></div>
+      <input type="text" th:field="*{userName}" class="name" placeholder="이름" th:errorclass="field-error">
+      <div class="field-error" th:error="*{userName}"></div>
     </div>
     <div class="memberInfo">
       <input type="email" th:field="*{userEmail}" class="email" placeholder="이메일" th:errorclass="field-error">
       <div class="field-error" th:error="*{userEmail}"></div>
+    </div>
+    <div class="memberInfo">
+      <input type="text" th:field="*{userId}" class="id" placeholder="아이디" th:errorclass="field-error">
+      <div class="field-error" th:error="*{userId}"></div>
     </div>
     <div class="memberInfo">
       <input type="password" th:field="*{userPassword}" class="password" placeholder="비밀번호" th:errorclass="field-error">

@@ -8,4 +8,5 @@
 .col {padding-bottom: 1rem; text-align: center;}
 .loginBtn {width: 430px; height: 35px; border-radius: 6px; border: none; background-color: #dcdcdc;}
 .addMemberBtn {width: 430px; height: 35px; border-radius: 6px; border: none; background-color: #dcdcdc;}
+.field-error {border-color: #dc3545; color: #dc3545;}
 h2 {text-align: center;}
