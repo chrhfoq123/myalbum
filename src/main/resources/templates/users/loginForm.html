@@ -11,12 +11,15 @@
         <h2>My Album</h2>
     </div>
     <form action="" th:action th:object="${user}" method="post">
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}">전체 오류 메시지</p>
+        </div>
         <div class="memberInfo">
-            <input type="text" th:field="*{userId}" class="id" placeholder="아이디 입력">
+            <input type="text" th:field="*{userId}" class="id" placeholder="아이디 입력" th:errorclass="field-error">
             <div class="field-error" th:error="*{userId}"></div>
         </div>
         <div class="memberInfo">
-            <input type="password" th:field="*{userPassword}" class="password" placeholder="비밀번호 입력">
+            <input type="password" th:field="*{userPassword}" class="password" placeholder="비밀번호 입력" th:errorclass="field-error">
             <div class="field-error" th:error="*{userPassword}"></div>
         </div>
         <div class="saveId">

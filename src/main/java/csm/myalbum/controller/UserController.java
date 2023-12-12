@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,11 +47,19 @@ public class UserController {
             return "users/loginForm";
         }
 
-        User loginUser = userService.login(user.getUserId(), user.getUserPassword());
+//        if(user.getUserId() == null){
+//            bindingResult.addError(new FieldError("user", "userId", "아이디가 비어있습니다."));
+//        }
+//
+//        if(user.getUserPassword() == null){
+//            bindingResult.addError(new FieldError("user", "userPassword", "비밀번호가 비어있습니다."));
+//        }
+
+        User loginUser = userService.login(user);
         log.info("login? {}", loginUser);
 
         if(loginUser == null){
-            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
+            bindingResult.reject("loginFail", "아이디 또는 비밀번호를 확인해주세요.");
             return "users/loginForm";
         }
 

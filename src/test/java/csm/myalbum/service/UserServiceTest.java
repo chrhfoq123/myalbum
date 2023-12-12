@@ -25,13 +25,31 @@ class UserServiceTest {
         User user = new User();
         user.setUserEmail("chrhfoq123@naver.com");
         user.setUserName("최상민");
-        user.setUserPassword("asdfasdfasdf123");
+        user.setUserId("chrhfoq123");
+        user.setUserPassword("1234");
 
         //when
         Long id = userService.join(user);
 
         //then
         assertEquals(user, userRepository.findOne(id));
+    }
+
+    @Test
+    public void 로그인() throws Exception{
+        //given
+        User user = new User();
+        user.setUserEmail("chrhfoq123@naver.com");
+        user.setUserName("최상민");
+        user.setUserId("chrhfoq123");
+        user.setUserPassword("1234");
+        userService.join(user);
+
+        //when
+        User login = userService.login(user);
+
+        //then
+        assertEquals("chrhfoq123", login.getUserId());
     }
 
     @Test

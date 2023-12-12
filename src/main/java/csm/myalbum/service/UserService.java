@@ -28,11 +28,14 @@ public class UserService {
         return user.getId();
     }
 
-    public User login(String loginId, String password){
-        Optional<User> findUserOptional = userRepository.findByUserId(loginId);
-        User user = findUserOptional.get();
-        if(user.getUserPassword().equals(password)){
-            return user;
+    /**
+     * 로그인
+     */
+    public User login(User user){
+        Optional<User> findUserOptional = userRepository.findByUserId(user.getUserId());
+        User userRes = findUserOptional.get();
+        if(userRes.getUserPassword().equals(user.getUserPassword())){
+            return userRes;
         }else{
             return null;
         }
