@@ -33,6 +33,10 @@ public class UserService {
      */
     public User login(User user){
         Optional<User> findUserOptional = userRepository.findByUserId(user.getUserId());
+        if(findUserOptional.isEmpty()){
+            return null;
+        }
+
         User userRes = findUserOptional.get();
         if(userRes.getUserPassword().equals(user.getUserPassword())){
             return userRes;

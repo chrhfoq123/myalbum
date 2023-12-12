@@ -47,14 +47,6 @@ public class UserController {
             return "users/loginForm";
         }
 
-//        if(user.getUserId() == null){
-//            bindingResult.addError(new FieldError("user", "userId", "아이디가 비어있습니다."));
-//        }
-//
-//        if(user.getUserPassword() == null){
-//            bindingResult.addError(new FieldError("user", "userPassword", "비밀번호가 비어있습니다."));
-//        }
-
         User loginUser = userService.login(user);
         log.info("login? {}", loginUser);
 
