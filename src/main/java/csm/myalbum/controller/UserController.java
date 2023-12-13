@@ -2,6 +2,9 @@ package csm.myalbum.controller;
 
 import csm.myalbum.domain.User;
 import csm.myalbum.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +45,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute("user") User user, BindingResult bindingResult){
+    public String login(@Valid @ModelAttribute("user") User user, BindingResult bindingResult, HttpServletRequest request){
         if(bindingResult.hasErrors()){
             return "users/loginForm";
         }
@@ -55,6 +58,19 @@ public class UserController {
             return "users/loginForm";
         }
 
+        HttpSession session = request.getSession();
+        session.setAttribute("loginUser", loginUser);
+
         return "redirect:/albumListForm";
+    }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if(session != null){
+            session.invalidate();
+        }
+
+        return "redirect:/users/login";
     }
 }
