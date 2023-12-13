@@ -61,7 +61,7 @@ public class UserController {
         HttpSession session = request.getSession();
         session.setAttribute("loginUser", loginUser);
 
-        return "redirect:/albumListForm";
+        return "redirect:/albums/albumList";
     }
 
     @PostMapping("/logout")
