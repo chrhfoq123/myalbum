@@ -20,8 +20,14 @@
         <div class="memberInfo">
             <input type="text" th:field="*{userId}" class="id" th:value="${user.userId}" disabled>
         </div>
+        <div class="memberInfo">
+            <input type="text" th:field="*{userCreatedAt}" class="createdAt" th:value="${user.userCreatedAt}" disabled>
+        </div>
         <div class="col">
-            <button class="acceptBtn" th:onclick="|location.href='@{/albums/albumList}'|" type="button">확인</button>
+            <button class="modifyBtn" type="button">수정하기</button>
+        </div>
+        <div class="col">
+            <button class="acceptBtn" th:onclick="|location.href='@{/albums/albumList}'|" type="button">돌아가기</button>
         </div>
     </form>
 </div> <!-- /container -->
