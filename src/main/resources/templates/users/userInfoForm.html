@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/userInfoForm.css}" href="../css/userInfoForm.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="logo">
+        <h2>My Album</h2>
+    </div>
+    <form action="" th:action th:object="${user}" method="post">
+        <div class="memberInfo">
+            <input type="text" th:field="*{userName}" class="name">
+        </div>
+        <div class="memberInfo">
+            <input type="email" th:field="*{userEmail}" class="email">
+        </div>
+        <div class="memberInfo">
+            <input type="text" th:field="*{userId}" class="id">
+        </div>
+        <div class="memberInfo">
+            <input type="password" th:field="*{userPassword}" class="password">
+        </div>
+        <div class="col">
+            <button class="acceptBtn" th:onclick="|location.href='@{/albums/albumList}'|" type="button">확인</button>
+        </div>
+    </form>
+</div> <!-- /container -->
+</body>
+</html>

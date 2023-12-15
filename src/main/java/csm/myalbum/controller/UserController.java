@@ -11,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
@@ -72,5 +69,15 @@ public class UserController {
         }
 
         return "redirect:/users/login";
+    }
+
+    @GetMapping("/info")
+    public String info(@ModelAttribute("user") User user, HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if(session == null){
+            return "redirect:/users/login";
+        }
+
+        return "users/userInfoForm";
     }
 }
