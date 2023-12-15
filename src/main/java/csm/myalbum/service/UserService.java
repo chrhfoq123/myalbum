@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.swing.text.html.Option;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,7 @@ public class UserService {
     public Long join(User user){
         validateDuplicateUserId(user); //중복 회원아이디 검증
         validateDuplicateUserEmail(user); //중복 회원이메일 검증
+        user.setCreatedAt(LocalDateTime.now());
         userRepository.save(user);
         return user.getId();
     }
