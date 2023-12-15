@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -72,11 +73,14 @@ public class UserController {
     }
 
     @GetMapping("/info")
-    public String info(@ModelAttribute("user") User user, HttpServletRequest request){
+    public String info(Model model, HttpServletRequest request){
         HttpSession session = request.getSession(false);
         if(session == null){
             return "redirect:/users/login";
         }
+
+        User user = (User) session.getAttribute("loginUser");
+        model.addAttribute(user);
 
         return "users/userInfoForm";
     }

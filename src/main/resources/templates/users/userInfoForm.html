@@ -12,16 +12,13 @@
     </div>
     <form action="" th:action th:object="${user}" method="post">
         <div class="memberInfo">
-            <input type="text" th:field="*{userName}" class="name">
+            <input type="text" th:field="*{userName}" class="name" th:value="${user.userName}" disabled>
         </div>
         <div class="memberInfo">
-            <input type="email" th:field="*{userEmail}" class="email">
+            <input type="email" th:field="*{userEmail}" class="email" th:value="${user.userEmail}" disabled>
         </div>
         <div class="memberInfo">
-            <input type="text" th:field="*{userId}" class="id">
-        </div>
-        <div class="memberInfo">
-            <input type="password" th:field="*{userPassword}" class="password">
+            <input type="text" th:field="*{userId}" class="id" th:value="${user.userId}" disabled>
         </div>
         <div class="col">
             <button class="acceptBtn" th:onclick="|location.href='@{/albums/albumList}'|" type="button">확인</button>
