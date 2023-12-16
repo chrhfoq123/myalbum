@@ -11,17 +11,33 @@
         <h2>My Album</h2>
     </div>
     <form action="" th:action th:object="${user}" method="post">
-        <div class="memberInfo">
-            <input type="text" th:field="*{userName}" class="name" th:value="${user.userName}" disabled>
-        </div>
-        <div class="memberInfo">
-            <input type="email" th:field="*{userEmail}" class="email" th:value="${user.userEmail}" disabled>
-        </div>
-        <div class="memberInfo">
-            <input type="text" th:field="*{userId}" class="id" th:value="${user.userId}" disabled>
-        </div>
-        <div class="memberInfo">
-            <input type="text" th:field="*{createdAt}" class="createdAt" th:value="${user.createdAt}" disabled>
+        <div class="memberInfoForm">
+            <div class="memberInfo">
+                <div class="nameLabel">Name</div>
+                <input type="text" th:field="*{userName}" class="name" th:value="${user.userName}" disabled>
+            </div>
+            <div class="memberInfo">
+                <div class="emailLabel">Email</div>
+                <input type="email" th:field="*{userEmail}" class="email" th:value="${user.userEmail}" disabled>
+            </div>
+            <div class="memberInfo">
+                <div class="idLabel">ID</div>
+                <input type="text" th:field="*{userId}" class="id" th:value="${user.userId}" disabled>
+            </div>
+            <div class="memberInfo">
+                <div class="createdLabel">Created At</div>
+                <input type="text" th:field="*{createdAt}" class="createdAt" th:value="${user.createdAt}" disabled>
+            </div>
+            <div class="albumInfo">
+                <div class="totalAlbum">
+                    총 앨범 수 :
+                    <div class="count">10</div>
+                </div>
+                <div class="totalPhoto">
+                    총 사진 수 :
+                    <div class="count">50</div>
+                </div>
+            </div>
         </div>
         <div class="col">
             <button class="modifyBtn" type="button">수정하기</button>

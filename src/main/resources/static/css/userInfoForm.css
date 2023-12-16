@@ -1,12 +1,19 @@
-.container {max-width: 500px;}
+.container {max-width: 580px;}
 .field-error {border-color: #dc3545; color: #dc3545;}
 .logo {padding-top: 15rem; padding-bottom: 1rem;}
-.memberInfo{padding-bottom: 1rem;  text-align: center;}
-.name {border: 1px solid black; border-radius: 6px; width: 430px; height: 35px; padding-left: 1rem;}
-.id {border: 1px solid black; border-radius: 6px; width: 430px; height: 35px; padding-left: 1rem;}
-.email {border: 1px solid black; border-radius: 6px; width: 430px; height: 35px; padding-left: 1rem;}
-.createdAt {border: 1px solid black; border-radius: 6px; width: 430px; height: 35px; padding-left: 1rem;}
+.memberInfo {display: flex; padding-bottom: 1rem;}
+.nameLabel {font-size: 13px; padding-top: 6px; margin-right: 2.7rem;}
+.emailLabel {font-size: 13px; padding-top: 6px; margin-right: 2.9rem;}
+.idLabel {font-size: 13px; padding-top: 6px; margin-right: 4.1rem;}
+.createdLabel {font-size: 13px; padding-top: 6px; margin-right: 1rem;}
+.name {border: 1px solid black; border-radius: 6px; width: 400px; height: 35px; padding-left: 1rem;}
+.id {border: 1px solid black; border-radius: 6px; width: 400px; height: 35px; padding-left: 1rem;}
+.email {border: 1px solid black; border-radius: 6px; width: 400px; height: 35px; padding-left: 1rem;}
+.createdAt {border: 1px solid black; border-radius: 6px; width: 400px; height: 35px; padding-left: 1rem;}
+.albumInfo {display: flex; padding-top: 1rem; padding-bottom: 2rem; padding-left: 8.5rem;}
+.totalAlbum {display: flex; margin-right: 2rem;}
+.totalPhoto {display: flex; margin-left: 2rem;}
 .col {padding-bottom: 1rem; text-align: center;}
-.modifyBtn {width: 430px; height: 35px; border-radius: 6px; border: none; background-color: #dcdcdc;}
-.acceptBtn {width: 430px; height: 35px; border-radius: 6px; border: none; background-color: #dcdcdc;}
+.modifyBtn {width: 400px; height: 35px; border-radius: 6px; border: none; background-color: #dcdcdc;}
+.acceptBtn {width: 400px; height: 35px; border-radius: 6px; border: none; background-color: #dcdcdc;}
 h2 {text-align: center;}
