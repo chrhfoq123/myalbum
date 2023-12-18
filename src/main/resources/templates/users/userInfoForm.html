@@ -42,10 +42,15 @@
         <div class="col">
             <button class="modifyBtn" type="button">수정하기</button>
         </div>
+    </form>
+    <form action="" th:action="@{/users/logout}" method="post">
         <div class="col">
-            <button class="acceptBtn" th:onclick="|location.href='@{/albums/albumList}'|" type="button">돌아가기</button>
+            <button class="logoutBtn" type="submit">로그아웃</button>
         </div>
     </form>
+    <div class="col">
+        <button class="acceptBtn" th:onclick="|location.href='@{/albums/albumList}'|" type="button">돌아가기</button>
+    </div>
 </div> <!-- /container -->
 </body>
 </html>

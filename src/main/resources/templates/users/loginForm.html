@@ -10,7 +10,7 @@
     <div class="mainLogo">
         <h2>My Album</h2>
     </div>
-    <form action="" th:action th:object="${user}" method="post">
+    <form action="" th:action="@{/users/login}" th:object="${user}" method="post">
         <div th:if="${#fields.hasGlobalErrors()}">
             <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}">전체 오류 메시지</p>
         </div>
@@ -28,10 +28,10 @@
         <div class="col">
             <button class="loginBtn" type="submit">로그인</button>
         </div>
-        <div class="col">
-            <button class="addMemberBtn" th:onclick="|location.href='@{/users/add}'|" type="button">회원가입</button>
-        </div>
     </form>
+    <div class="col">
+        <button class="addMemberBtn" th:onclick="|location.href='@{/users/add}'|" type="button">회원가입</button>
+    </div>
 </div> <!-- /container -->
 </body>
 </html>
