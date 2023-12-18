@@ -10,6 +10,17 @@
 
 <div th:replace="~{fragments/header :: header}" />
 
+<div id="my_modal">
+    <div class="titleName">앨범명 입력</div>
+    <a class="modal_close_btn" style="cursor: pointer;">X</a>
+    <form action="" method="post">
+        <div class="addAlbumForm">
+            <input type="text" class="albumName">
+            <button class="addBtn">앨범 생성</button>
+        </div>
+    </form>
+</div>
+
 <div class="container">
     <div class="nowPage">내 앨범</div>
     <div class="searchBar">
@@ -20,7 +31,7 @@
     </div>
     <div class="albumList1">
         <div class="addAlbum">
-            <div class="square">+</div>
+            <button id="square">+</button>
         </div>
         <div class="selectAlbum">
             <div class="img">썸네일</div>
@@ -53,5 +64,49 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    function modal(id) {
+    var zIndex = 9999;
+    var modal = $('#' + id);
+
+    var bg = $('<div>')
+        .css({
+            position: 'fixed',
+            zIndex: zIndex,
+            left: '0px',
+            top: '0px',
+            width: '100%',
+            height: '100%',
+            overflow: 'auto',
+            backgroundColor: 'rgba(0,0,0,0.4)'
+        })
+        .appendTo('body');
+
+    modal
+        .css({
+            position: 'fixed',
+            boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+            zIndex: zIndex + 1,
+
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            msTransform: 'translate(-50%, -50%)',
+            webkitTransform: 'translate(-50%, -50%)'
+        })
+        .show()
+        .find('.modal_close_btn')
+        .on('click', function() {
+            bg.remove();
+            modal.hide();
+        });
+}
+
+$('#square').on('click', function() {
+    modal('my_modal');
+});
+</script>
 </body>
 </html>
