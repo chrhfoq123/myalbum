@@ -84,4 +84,19 @@ public class UserController {
 
         return "users/userInfoForm";
     }
+
+    @GetMapping("/info/update")
+    public String infoUpdate(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if(session == null){
+            return "redirect:/users/login";
+        }
+
+        User user = (User) session.getAttribute("loginUser");
+        model.addAttribute(user);
+
+        return "users/userInfoUpdateForm";
+    }
+
+
 }
