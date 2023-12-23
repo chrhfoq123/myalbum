@@ -3,7 +3,6 @@ package csm.myalbum.controller;
 import csm.myalbum.domain.User;
 import csm.myalbum.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -86,17 +84,32 @@ public class UserController {
     }
 
     @GetMapping("/info/update")
-    public String infoUpdate(Model model, HttpServletRequest request){
+    public String infoUpdateForm(Model model, HttpServletRequest request){
         HttpSession session = request.getSession(false);
         if(session == null){
             return "redirect:/users/login";
         }
 
         User user = (User) session.getAttribute("loginUser");
+
         model.addAttribute(user);
 
         return "users/userInfoUpdateForm";
     }
 
+    /**
+     * update는 되는데 view에 반영이 안됨
+     */
+    @PostMapping("/info/update")
+    public String infoUpdate(@ModelAttribute("user") User user, Model model, HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if(session == null){
+            return "redirect:/users/login";
+        }
 
+        User loginUser = (User) session.getAttribute("loginUser");
+        userService.update(loginUser.getId(), user.getUserName(), user.getUserEmail(), user.getUserPassword());
+
+        return "redirect:/users/info";
+    }
 }

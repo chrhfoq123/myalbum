@@ -3,6 +3,7 @@ package csm.myalbum.service;
 import csm.myalbum.domain.User;
 import csm.myalbum.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
@@ -59,6 +61,17 @@ public class UserService {
      */
     public User findOne(Long userId){
         return userRepository.findOne(userId);
+    }
+
+    /**
+     * 회원 정보 수정
+     */
+    @Transactional
+    public void update(Long id, String name, String email, String password){
+        User user = userRepository.findOne(id);
+        user.setUserName(name);
+        user.setUserEmail(email);
+        user.setUserPassword(password);
     }
 
     /**
